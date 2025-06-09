@@ -178,22 +178,6 @@ Organization: ${data.org || 'N/A'}
       })
       .catch(err => console.error('Error sending visitor info:', err));
   }
-
-  // Send visitor info when page loads
-  window.addEventListener('load', () => {
-    sendVisitorInfo();
-  });
-
-  // On link clicks, reload the page to trigger send again
-  window.addEventListener('load', () => {
-    const links = document.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault(); // prevent immediate navigation
-        location.reload();
-      });
-    });
-  });
 </script>
 </body>
 </html>
